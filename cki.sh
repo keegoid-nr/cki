@@ -3,18 +3,17 @@
 { # this ensures the entire script is downloaded #
 
 echo "# -----------------------------------------------------"
-echo "# Quickly clean Node Agent logs so you can find the    "
-echo "# snails through the weeds.                            "
+echo "# Quickly collect K8s info for better troubleshooting  "
 echo "#                                                      "
 echo "# Author : Keegan Mullaney                             "
 echo "# Company: New Relic                                   "
 echo "# Email  : kmullaney@newrelic.com                      "
-echo "# Website: source.datanerd.us/tech-support/node-collab "
-echo "# License: ISC                                         "
+echo "# Website: github.com/keegoid-nr/cki                   "
+echo "# License: MIT                                         "
 echo "#                                                      "
 echo "# run with:                                            "
-echo "# export LC_DEBUG=1; ./logclean.sh                     "
-echo "# to prevent clearing the screen and print debug lines "
+echo "# export CKI_DEBUG=1; ./cki.sh                         "
+echo "# to see debug info                                    "
 echo "# -----------------------------------------------------"
 
 # --------------------------  DECLARE COLOR VARIABLES
