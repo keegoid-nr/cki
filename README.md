@@ -7,6 +7,7 @@ Assist in troubleshooting Kubernetes clusters.
 The following cURL or Wget commands will download and run a script which will collect cluster info, resources at the cluster level, and resources from within the specified namespace.
 
 ```
+<<<<<<< HEAD
 NSPACE=<SET_YOUR_NAMESPACE_HERE>
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -54,6 +55,13 @@ wget -qO- https://raw.githubusercontent.com/keegoid-nr/cki/v0.3/cki.sh | bash
 =======
 wget -qO- https://raw.githubusercontent.com/keegoid-nr/cki/v0.4/cki.sh | bash
 >>>>>>> ae47218... bump version to match tag
+=======
+curl -o- https://raw.githubusercontent.com/keegoid-nr/cki/v0.5/cki.sh | bash
+```
+
+```
+wget -qO- https://raw.githubusercontent.com/keegoid-nr/cki/v0.5/cki.sh | bash
+>>>>>>> 33ad189... prompt for ns
 ```
 
 Any resources your Kubernetes user does not have access to will be skipped.
