@@ -7,69 +7,11 @@ Assist in troubleshooting Kubernetes clusters.
 The following cURL or Wget commands will download and run a script which will collect cluster info, resources at the cluster level, and resources from within the specified namespace.
 
 ```
-<<<<<<< HEAD
-<<<<<<< HEAD
-NSPACE=<SET_YOUR_NAMESPACE_HERE>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 curl -o- https://raw.githubusercontent.com/keegoid-nr/cki/v0.2/cki.sh | bash
-=======
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
->>>>>>> b7611da... adjust formatting
-=======
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/keegoid-nr/cki/v0.2/cki.sh | bash
->>>>>>> 6444915... fix url
-=======
-curl -o- https://raw.githubusercontent.com/keegoid-nr/cki/v0.2/cki.sh | bash
->>>>>>> 83eae7d... fix url
-=======
-curl -o- https://raw.githubusercontent.com/keegoid-nr/cki/v0.3/cki.sh | bash
->>>>>>> ec7da41... test tags
-=======
-curl -o- https://raw.githubusercontent.com/keegoid-nr/cki/v0.4/cki.sh | bash
->>>>>>> ae47218... bump version to match tag
 ```
 
 ```
-NSPACE=<SET_YOUR_NAMESPACE_HERE>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 wget -qO- https://raw.githubusercontent.com/keegoid-nr/cki/v0.2/cki.sh | bash
-=======
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
->>>>>>> b7611da... adjust formatting
-=======
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/keegoid-nr/cki/v0.2/cki.sh | bash
->>>>>>> 6444915... fix url
-=======
-wget -qO- https://raw.githubusercontent.com/keegoid-nr/cki/v0.2/cki.sh | bash
->>>>>>> 83eae7d... fix url
-=======
-wget -qO- https://raw.githubusercontent.com/keegoid-nr/cki/v0.3/cki.sh | bash
->>>>>>> ec7da41... test tags
-=======
-wget -qO- https://raw.githubusercontent.com/keegoid-nr/cki/v0.4/cki.sh | bash
->>>>>>> ae47218... bump version to match tag
-=======
-curl -o- https://raw.githubusercontent.com/keegoid-nr/cki/v0.5/cki.sh | bash
-```
-
-```
-wget -qO- https://raw.githubusercontent.com/keegoid-nr/cki/v0.5/cki.sh | bash
->>>>>>> 33ad189... prompt for ns
-=======
-curl -o- https://raw.githubusercontent.com/keegoid-nr/cki/v0.6/cki.sh | bash
-```
-
-```
-wget -qO- https://raw.githubusercontent.com/keegoid-nr/cki/v0.6/cki.sh | bash
->>>>>>> dda46da... switch bash package
 ```
 
 Any resources your Kubernetes user does not have access to will be skipped.
