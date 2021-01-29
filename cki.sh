@@ -11,9 +11,8 @@ echo "# Email  : kmullaney@newrelic.com                      "
 echo "# Website: github.com/keegoid-nr/cki                   "
 echo "# License: MIT                                         "
 echo "#                                                      "
-echo "# run with:                                            "
+echo "# debug mode:                                          "
 echo "# export CKI_DEBUG=1; ./cki.sh                         "
-echo "# to see debug info                                    "
 echo "# -----------------------------------------------------"
 
 # --------------------------  DECLARE COLOR VARIABLES
