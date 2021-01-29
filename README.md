@@ -8,6 +8,7 @@ The following cURL or Wget commands will download and run a script which will co
 
 ```
 <<<<<<< HEAD
+<<<<<<< HEAD
 NSPACE=<SET_YOUR_NAMESPACE_HERE>
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -62,6 +63,13 @@ curl -o- https://raw.githubusercontent.com/keegoid-nr/cki/v0.5/cki.sh | bash
 ```
 wget -qO- https://raw.githubusercontent.com/keegoid-nr/cki/v0.5/cki.sh | bash
 >>>>>>> 33ad189... prompt for ns
+=======
+curl -o- https://raw.githubusercontent.com/keegoid-nr/cki/v0.6/cki.sh | bash
+```
+
+```
+wget -qO- https://raw.githubusercontent.com/keegoid-nr/cki/v0.6/cki.sh | bash
+>>>>>>> dda46da... switch bash package
 ```
 
 Any resources your Kubernetes user does not have access to will be skipped.
