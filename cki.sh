@@ -205,13 +205,15 @@ cki_go() {
     read -rep "Enter namespace resources to describe : " -i 'role rolebinding service sa sts pvc pod' nsres
 
     # cluster info
-    info=('version --short' 'get cs -A' 'get netpol -A -o wide' 'api-versions' 'api-resources -o wide' 'get apiservices.apiregistration.k8s.io')
+    cinfo=('version --short' 'get cs -A' 'get netpol -A -o wide' 'api-versions' 'api-resources -o wide' 'get apiservices.apiregistration.k8s.io')
     for ci in "${cinfo[@]}"
     do
       cki_echo "${ci}"
       kubectl $ci
     done >k8s-info.log 2>&1
 
+    RET=$?
+    lkm_error "There were some errors in k8s-info.log"
     lkm_success "Successfully created: k8s-info.log"
     lkm_msg2 "${GREEN_CHK} ${YELLOW_CHK} ${BLUE_CHK} ${GREEN_CHK} ${YELLOW_CHK}                     (33%)\r"
 
@@ -222,6 +224,8 @@ cki_go() {
       kubectl describe $(kubectl get $cr -o name)
     done >k8s-resources.yaml 2>&1
 
+    RET=$?
+    lkm_error "There were some errors in k8s-resources.yaml"
     lkm_success "Successfully created: k8s-resources.yaml"
     lkm_msg2 "${GREEN_CHK} ${YELLOW_CHK} ${BLUE_CHK} ${GREEN_CHK} ${YELLOW_CHK} ${BLUE_CHK} ${GREEN_CHK} ${YELLOW_CHK} ${BLUE_CHK} ${GREEN_CHK}           (66%)\r"
 
@@ -232,6 +236,8 @@ cki_go() {
       kubectl describe $(kubectl get $nr -o name -n $nspace) -n $nspace
     done >>k8s-resources.yaml 2>&1
 
+    RET=$?
+    lkm_error "There were some errors in k8s-resources.yaml"
     lkm_success "Successfully appended to: k8s-resources.yaml"
     lkm_msg2 "${GREEN_CHK} ${YELLOW_CHK} ${BLUE_CHK} ${GREEN_CHK} ${YELLOW_CHK} ${BLUE_CHK} ${GREEN_CHK} ${YELLOW_CHK} ${BLUE_CHK} ${GREEN_CHK} ${YELLOW_CHK} ${BLUE_CHK} ${GREEN_CHK} ${YELLOW_CHK} ${BLUE_CHK} ${GREEN_CHK} (100%)\r"
     echo -ne '\n'
