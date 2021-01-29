@@ -8,7 +8,7 @@ cki_has() {
 
 cki_echo() {
   echo
-  echo "~~ ${1} ~~"
+  echo "~~ $1 ~~"
   echo
 }
 
@@ -27,28 +27,28 @@ cki_go() {
     read -rep "Enter namespace resources to describe   : " -i 'role rolebinding service sa sts pvc pod' ns-resources
 
     # cluster info
-    for r in "${info[@]}"
+    for i in "${info[@]}"
     do
-      cki_echo "${r}"
-      kubectl "${r}"
+      cki_echo ${i}
+      kubectl ${i}
     done
 
     >k8s-info.log 2>&1
 
     # cluster resources
-    for r in $cluster-resources
+    for cr in "${cluster-resources}"
     do
-      cki_echo "${r}"
-      kubectl describe $(kubectl get "${r}" -o name --no-headers=true)
+      cki_echo ${cr}
+      kubectl describe $(kubectl get ${cr} -o name --no-headers=true)
     done
 
     >k8s-resources.yaml 2>&1
 
     # namespace specific resources
-    for r in $ns-resources
+    for nr in "${ns-resources}"
     do
-      cki_echo "${r}"
-      kubectl describe $(kubectl get "${r}" -o name -n $nspace) -n $nspace
+      cki_echo ${nr}
+      kubectl describe $(kubectl get ${nr} -o name -n $nspace) -n $nspace
     done
 
     >>k8s-resources.yaml 2>&1
