@@ -8,12 +8,12 @@ The following cURL or Wget commands will download and run a script which will co
 
 ```
 NSPACE=<SET_YOUR_NAMESPACE_HERE>
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/keegoid-nr/cki/v0.2/cki.sh | bash
 ```
 
 ```
 NSPACE=<SET_YOUR_NAMESPACE_HERE>
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/keegoid-nr/cki/v0.2/cki.sh | bash
 ```
 
 Any resources your Kubernetes user does not have access to will be skipped.
