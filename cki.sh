@@ -27,10 +27,10 @@ cki_go() {
     read -rep "Enter namespace resources to describe   : " -i 'role rolebinding service sa sts pvc pod' ns-resources
 
     # cluster info
-    for i in "${info[@]}"
+    for ci in "${cluster-info[@]}"
     do
-      cki_echo ${i}
-      kubectl ${i}
+      cki_echo ${ci}
+      kubectl ${ci}
     done
 
     >k8s-info.log 2>&1
@@ -39,7 +39,7 @@ cki_go() {
     for cr in "${cluster-resources}"
     do
       cki_echo ${cr}
-      kubectl describe $(kubectl get ${cr} -o name --no-headers=true)
+      kubectl describe $(kubectl get ${cr} -o name)
     done
 
     >k8s-resources.yaml 2>&1
