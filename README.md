@@ -11,6 +11,7 @@ NSPACE=<SET_YOUR_NAMESPACE_HERE>
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 curl -o- https://raw.githubusercontent.com/keegoid-nr/cki/v0.2/cki.sh | bash
 =======
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
@@ -21,10 +22,14 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/keegoid-nr/cki/v0.2/cki.sh
 =======
 curl -o- https://raw.githubusercontent.com/keegoid-nr/cki/v0.2/cki.sh | bash
 >>>>>>> 83eae7d... fix url
+=======
+curl -o- https://raw.githubusercontent.com/keegoid-nr/cki/v0.3/cki.sh | bash
+>>>>>>> ec7da41... test tags
 ```
 
 ```
 NSPACE=<SET_YOUR_NAMESPACE_HERE>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -38,6 +43,9 @@ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/keegoid-nr/cki/v0.2/cki.s
 =======
 wget -qO- https://raw.githubusercontent.com/keegoid-nr/cki/v0.2/cki.sh | bash
 >>>>>>> 83eae7d... fix url
+=======
+wget -qO- https://raw.githubusercontent.com/keegoid-nr/cki/v0.3/cki.sh | bash
+>>>>>>> ec7da41... test tags
 ```
 
 Any resources your Kubernetes user does not have access to will be skipped.
