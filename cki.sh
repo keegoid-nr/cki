@@ -14,20 +14,17 @@ cki_echo() {
 
 
 cki_go() {
+  local nspace
+  local info
+
   if cki_has kubectl; then
-    local nspace
-    local cluster-info
-    local cluster-resources
-    local ns-resources
-
-    cluster-info=('version --short' 'get cs -A' 'get netpol -A -o wide' 'api-versions' 'api-resources -o wide' 'get apiservices.apiregistration.k8s.io')
-
     read -rep "Enter your namespace   : " nspace
     read -rep "Enter cluster resources to describe   : " -i 'ns svc sc node pv' cluster-resources
     read -rep "Enter namespace resources to describe   : " -i 'role rolebinding service sa sts pvc pod' ns-resources
 
     # cluster info
-    for ci in "${cluster-info[@]}"
+    info=('version --short' 'get cs -A' 'get netpol -A -o wide' 'api-versions' 'api-resources -o wide' 'get apiservices.apiregistration.k8s.io')
+    for ci in "${info[@]}"
     do
       cki_echo ${ci}
       kubectl ${ci}
