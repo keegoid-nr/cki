@@ -301,7 +301,7 @@ cki_kubectl() {
   [ $CKI_DEBUG -eq 1 ] && cki_notify3 "aligned step=$alignedStep"
 
   # remove file if it already exists
-  rm --preserve-root "$path"
+  rm --preserve-root "$path" 2>/dev/null
   echo
 
   for res in "${commands[@]}"
@@ -317,6 +317,9 @@ cki_kubectl() {
     cki_progress_bar $((alignedStep * cnt))
     cnt=$(( cnt + 1 ))
   done
+
+  # remove any private location keys from results
+  sed -i -e 's/[[:alpha:]]\{4\}-[[:alpha:]]\{2\}[[:alnum:]]\{33\}/~~~REMOVED~~~/g' "$path"
 
   cki_progress_bar 100
   echo -ne '\n'
