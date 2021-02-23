@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 { # this ensures the entire script is downloaded #
 
@@ -16,8 +16,6 @@ SCRIPT_HEADER=(
 "# export CKI_DEBUG=1; ./cki.sh                         "
 "# -----------------------------------------------------"
 )
-
-# source lib.sh
 
 # --------------------------  DECLARE COLOR VARIABLES
 
@@ -355,6 +353,7 @@ cki_handle_error() {
 cki_kubectl() {
   local path="$1"
   local ns="$2"
+  local subjects
   shift 2
   local commands=("$@")
   local cnt=1
@@ -371,13 +370,23 @@ cki_kubectl() {
 
   for res in "${commands[@]}"
   do
-    lib_echo "$res" >>"$path" 2>&1
+    lib_echo "$res" &>>"$path"
     if [ "$ns" == "foo" ]; then
-      kubectl $res >>"$path" 2>&1
+      kubectl $res &>>"$path"
     elif [ "$ns" == "bar" ]; then
-      kubectl describe $(kubectl get $res -o name) >>"$path" 2>&1
+      subjects=$(kubectl get $res -o name)
+      if [ -z "$subjects" ]; then
+        echo "nothing found" &>>"$path"
+      else
+        kubectl describe $subjects &>>"$path"
+      fi
     else
-      kubectl describe $(kubectl get $res -o name -n "$ns") -n "$ns" >>"$path" 2>&1
+      subjects=$(kubectl get $res -o name -n "$ns")
+      if [ -z "$subjects" ]; then
+        echo "nothing found" &>>"$path"
+      else
+        kubectl describe $subjects -n "$ns" &>>"$path"
+      fi
     fi
     lib_progress_bar $((alignedStep * cnt))
     cnt=$(( cnt + 1 ))
