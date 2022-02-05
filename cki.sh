@@ -368,6 +368,9 @@ cki_kubectl() {
   rm --preserve-root "$path" 2>/dev/null
   echo
 
+  # enable braceexpand in shell
+  set -B
+
   for res in "${commands[@]}"
   do
     lib_echo "$res" &>>"$path"
@@ -467,7 +470,7 @@ cki_exit() {
   else
     lib_msg             "Thanks for using ${CKI_APP_NAME}!"
   fi
-  lib_msg             "(c) $(date +%Y) Keegan Mullaney (TSE), New Relic, MIT License"
+  lib_msg               "Made with <3 by Keegan Mullaney, a Senior Technical Support Engineer at New Relic."
 }
 
 # unset functions to free up memmory
